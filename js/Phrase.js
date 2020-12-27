@@ -9,7 +9,6 @@ class Phrase {
      * Implemented as li elements with classes to denote letters and spaces.
      */
     addPhraseToDisplay = () => {
-        console.log(this.parameter)
         const phraseArr = this.parameter.split('');
         let phraseList = [];
 
@@ -28,12 +27,11 @@ class Phrase {
      * @param {Object} textContent - The textContent method connected to the clicked letter button
      * @return {Boolean} boolean - For checkForWin method and update number of hearts
      */
-    checkLetter = (textContent) => {
+    checkLetter = textContent => {
         let matched = false;
         const phraseLetters = document.querySelectorAll(".letter");
         phraseLetters.forEach(letter => {
             if (textContent === letter.dataset.letter) {
-                this.showMatchedLetter(letter);
                 matched = true;
             }
         });

@@ -1,8 +1,8 @@
 "use strict";
 
-const phrase = new Phrase("This Phrase");
+// const phrase = new Phrase("This Phrase");
 
-phrase.addPhraseToDisplay();
+// phrase.addPhraseToDisplay();
 
 document.querySelector("#qwerty").addEventListener("click", ({target}) => {
     if (target.tagName === "BUTTON") {
