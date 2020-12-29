@@ -1,7 +1,7 @@
 class Phrase {
     
-    constructor(parameter) {
-        this.parameter = parameter;
+    constructor(phrase) {
+        this.phrase = phrase;
     }
     
     /**
@@ -9,7 +9,7 @@ class Phrase {
      * Implemented as li elements with classes to denote letters and spaces.
      */
     addPhraseToDisplay = () => {
-        const phraseArr = this.parameter.split('');
+        const phraseArr = this.phrase.split('');
         let phraseList = [];
 
         phraseArr.forEach(letter => {
@@ -29,7 +29,7 @@ class Phrase {
      */
     checkLetter = textContent => {
         const regex = new RegExp(`.*[${textContent}].*`, "i"); // i.e. /.*[i].*/i
-        return regex.test(this.parameter);
+        return regex.test(this.phrase);
     }
 
     /**

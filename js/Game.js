@@ -80,6 +80,9 @@ class Game {
     gameOver = endResult => {
         const overlay = document.querySelector("#overlay");
         const gameOverMessage = document.querySelector("#game-over-message");
+
+        overlay.classList.remove("win", "lose");
+
         function updateOverlay(gameClass, gameMessage) {
             overlay.style.display = '';
             overlay.classList.add(gameClass);
@@ -89,5 +92,18 @@ class Game {
         endResult 
             ? updateOverlay("win", "You Win!")
             : updateOverlay("lose", "Sorry, Try Again!");
+
+        // -- Reset the board -- //
+        document.querySelectorAll(".tries img[src$='lostHeart.png']").forEach(img => {
+            img.setAttribute("src", "images/liveHeart.png");
+        });
+        document.querySelector("#phrase ul").innerHTML = '';
+
+        document.querySelectorAll(".key").forEach(key => {
+            key.disabled = false;
+            key.classList.remove("chosen", "wrong");
+        });
+
+        this.missed = 0;
     }
 }
