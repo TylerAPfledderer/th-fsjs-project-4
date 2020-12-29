@@ -1,5 +1,5 @@
 /* Main styles */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&Roboto:300');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 /* Variables */
 
@@ -24,6 +24,7 @@
 }
 
 body {
+  background-color: #333;
   justify-content: space-evenly;
   flex-direction: column;
   display: flex;
@@ -47,6 +48,8 @@ h1 {
 }
 
 button {
+  font-family: "Raleway";
+  font-weight: 700;
   margin: 6px;
   border: 1px solid transparent;
   padding: .5rem 1rem;
@@ -86,7 +89,7 @@ button {
 /* Title */
 
 .header {
-  color: #3a3f58;
+  color: #fff;
 }
 
 
@@ -97,7 +100,7 @@ button {
   height: 65px;
   width: 65px;
   padding: 20px 1px 0 1px;
-  margin-right: 2px;
+  margin-right: 8px;
   color: transparent;
   background: var(--color-neutral-light);
   border-radius: 5px;
@@ -116,8 +119,8 @@ button {
   height: 65px;
   width: 65px;
   padding: 20px 1px 0 1px;
-  margin-right: 2px;
   border-radius: 5px;
+  animation: rubberBand, fadeIn;
   -webkit-animation-duration: .5s;
   animation-duration: .5s;
 }
@@ -173,6 +176,7 @@ button {
   left: 0;
   right: 0;
   border-radius: 5px;
+  z-index: 1000; /* To not have the last .show animtation to appear over the overlay at win/lose */
 }
 
 .title {
@@ -185,6 +189,16 @@ button {
 
 .start a {
   color: #fff;
+}
+
+.win h2,
+.lose h2 {
+  animation: bounce .5s;
+}
+
+.win h1,
+.lose h1 {
+  animation: swing .5s .5s;
 }
 
 .win {

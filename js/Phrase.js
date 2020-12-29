@@ -23,27 +23,25 @@ class Phrase {
     }
 
     /**
-     * Checks if the selected letter matches ones in the given phrase
-     * @param {Object} textContent - The textContent method connected to the clicked letter button
+     * Checks if the selected letter matches ones in the given phrase using RegExp
+     * @param {String} textContent - The textContent method connected to the clicked letter button
      * @return {Boolean} boolean - For checkForWin method and update number of hearts
      */
     checkLetter = textContent => {
-        let matched = false;
-        const phraseLetters = document.querySelectorAll(".letter");
-        phraseLetters.forEach(letter => {
-            if (textContent === letter.dataset.letter) {
-                matched = true;
-            }
-        });
-
-        return matched;
+        const regex = new RegExp(`.*[${textContent}].*`, "i"); // i.e. /.*[i].*/i
+        return regex.test(this.parameter);
     }
 
     /**
      * Displays the matched letter(s) in the phrase display
      * @param {Element} letter - the element containing the matched letter
      */
-    showMatchedLetter(letter) {
-        letter.classList.add("show");
+    showMatchedLetter(textContent) {
+        const phraseLetters = document.querySelectorAll(".letter");
+        phraseLetters.forEach(letter => {
+            if (textContent === letter.dataset.letter) {
+                letter.classList.add("show");
+            }
+        });
     }
 }
