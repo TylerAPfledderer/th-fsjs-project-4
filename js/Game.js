@@ -2,13 +2,13 @@ class Game {
     constructor() {
         this.missed = 0;
         this.phrases = [
-            "Happy Coding",
-            "Never Give Up",
-            "Let it Go",
-            "Piece of Cake",
-            "Back to Square One"
+            new Phrase("Happy Coding"),
+            new Phrase("Never Give Up"),
+            new Phrase("Let it Go"),
+            new Phrase("Piece of Cake"),
+            new Phrase("Back to Square One")
         ];
-        this.activePhrase = this.getRandomPhrase();
+        this.activePhrase = null;
     }
 
     /**
@@ -25,10 +25,7 @@ class Game {
      * @return {Object} Class -- Returns an instance of the Phrase object 
      *                              with the random phrase as the argument.
      */
-    getRandomPhrase = () => {
-        const randomPhrase = this.phrases[Math.floor(Math.random() * this.phrases.length)];
-        return new Phrase(randomPhrase);
-    }
+    getRandomPhrase = () => this.phrases[Math.floor(Math.random() * this.phrases.length)];
 
     /**
      * Function to run the checks against the selected letter and update the page
